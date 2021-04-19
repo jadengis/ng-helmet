@@ -17,7 +17,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "ng-helmet": ["packages/ng-helmet/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
