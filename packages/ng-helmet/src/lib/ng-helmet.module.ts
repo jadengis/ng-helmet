@@ -1,7 +1,8 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgHelmetComponent } from "./ng-helmet.component";
 
 @NgModule({
-  imports: [CommonModule],
+  declarations: [NgHelmetComponent],
+  exports: [NgHelmetComponent],
 })
 export class NgHelmetModule {}
