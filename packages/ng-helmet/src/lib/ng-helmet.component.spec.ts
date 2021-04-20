@@ -1,4 +1,6 @@
 import { createHostFactory, SpectatorHost } from "@ngneat/spectator/jest";
+import { NgHelmetMetaComponent } from "./ng-helmet-meta/ng-helmet-meta.component";
+import { NgHelmetTitleComponent } from "./ng-helmet-title/ng-helmet-title.component";
 
 import { NgHelmetComponent } from "./ng-helmet.component";
 import { NgHelmetService } from "./ng-helmet.service";
@@ -7,6 +9,7 @@ describe("NgHelmetComponent", () => {
   let spectator: SpectatorHost<NgHelmetComponent>;
   const createHost = createHostFactory({
     component: NgHelmetComponent,
+    declarations: [NgHelmetTitleComponent, NgHelmetMetaComponent],
     mocks: [NgHelmetService],
   });
 
