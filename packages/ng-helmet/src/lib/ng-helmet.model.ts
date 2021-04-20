@@ -1,3 +1,4 @@
+import { ElementRef } from "@angular/core";
 import { MetaDefinition } from "@angular/platform-browser";
 
 export type NgHelmet = Readonly<{
@@ -10,11 +11,11 @@ export type MetaDefinitions = {
 };
 
 export function buildHelmet(
-  titleEl: HTMLTitleElement | undefined,
-  metaEls: HTMLMetaElement[]
+  titleEl: ElementRef<HTMLTitleElement> | undefined,
+  metaEls: ElementRef<HTMLMetaElement>[]
 ): NgHelmet {
   return {
-    ...(titleEl && { title: titleEl.text }),
+    ...(titleEl && { title: titleEl.nativeElement.text }),
     metas: metaEls.map(metaToDefinition).reduce((acc, el) => {
       acc[attrSelector(el)] = el;
       return acc;
@@ -22,7 +23,9 @@ export function buildHelmet(
   };
 }
 
-function metaToDefinition(el: HTMLMetaElement): MetaDefinition {
+function metaToDefinition({
+  nativeElement: el,
+}: ElementRef<HTMLMetaElement>): MetaDefinition {
   const property = el.getAttribute("property");
   return {
     name: el.name,
