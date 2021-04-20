@@ -17,12 +17,12 @@ describe("NgHelmetComponent", () => {
     </ng-helmet>`);
     const helmetService = spectator.inject(NgHelmetService);
 
-    spectator.detectChanges();
     expect(helmetService.pushHelmet).toHaveBeenCalledWith(expect.any(Number), {
       title: "Home",
       metas: {
         "name='description'": {
           name: "description",
+          httpEquiv: "",
           content: "I'm da best mayne!",
         },
       },

@@ -14,7 +14,7 @@ export function buildHelmet(
   metaEls: HTMLMetaElement[]
 ): NgHelmet {
   return {
-    ...(titleEl && { title: titleEl.title }),
+    ...(titleEl && { title: titleEl.text }),
     metas: metaEls.map(metaToDefinition).reduce((acc, el) => {
       acc[attrSelector(el)] = el;
       return acc;
