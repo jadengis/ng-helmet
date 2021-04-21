@@ -16,7 +16,13 @@
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "ng-helmet", "style": "kebab-case" }
+          { "type": "element", "prefix": "ng-helmet" }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "varsIgnorePattern": "_.*"
+          }
         ]
       }
     },

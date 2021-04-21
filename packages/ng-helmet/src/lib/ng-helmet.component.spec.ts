@@ -1,4 +1,9 @@
-import { createHostFactory, SpectatorHost } from "@ngneat/spectator/jest";
+import {
+  createComponentFactory,
+  createHostFactory,
+  Spectator,
+  SpectatorHost,
+} from "@ngneat/spectator/jest";
 import { NgHelmetMetaComponent } from "./ng-helmet-meta.component";
 import { NgHelmetTitleComponent } from "./ng-helmet-title.component";
 
@@ -6,29 +11,53 @@ import { NgHelmetComponent } from "./ng-helmet.component";
 import { NgHelmetService } from "./ng-helmet.service";
 
 describe("NgHelmetComponent", () => {
-  let spectator: SpectatorHost<NgHelmetComponent>;
-  const createHost = createHostFactory({
-    component: NgHelmetComponent,
-    declarations: [NgHelmetTitleComponent, NgHelmetMetaComponent],
-    mocks: [NgHelmetService],
+  describe("while isolated", () => {
+    let spectator: Spectator<NgHelmetComponent>;
+    const createComponent = createComponentFactory({
+      component: NgHelmetComponent,
+      declarations: [NgHelmetTitleComponent, NgHelmetMetaComponent],
+      mocks: [NgHelmetService],
+    });
+
+    beforeEach(() => (spectator = createComponent()));
+
+    describe(".ngOnDestroy", () => {
+      it("should pop the helmet stack", () => {
+        const helmetService = spectator.inject(NgHelmetService);
+        spectator.component.ngOnDestroy();
+        expect(helmetService.popHelmet).toHaveBeenCalled();
+      });
+    });
   });
 
-  it("should harvest tags from content", () => {
-    spectator = createHost(`<ng-helmet>
+  describe("while in host", () => {
+    let spectator: SpectatorHost<NgHelmetComponent>;
+    const createHost = createHostFactory({
+      component: NgHelmetComponent,
+      declarations: [NgHelmetTitleComponent, NgHelmetMetaComponent],
+      mocks: [NgHelmetService],
+    });
+
+    it("should harvest tags from content", () => {
+      spectator = createHost(`<ng-helmet>
       <title>Home</title>
       <meta name="description" content="I'm da best mayne!">
     </ng-helmet>`);
-    const helmetService = spectator.inject(NgHelmetService);
+      const helmetService = spectator.inject(NgHelmetService);
 
-    expect(helmetService.pushHelmet).toHaveBeenCalledWith(expect.any(Number), {
-      title: "Home",
-      metas: {
-        "name='description'": {
-          name: "description",
-          httpEquiv: "",
-          content: "I'm da best mayne!",
-        },
-      },
+      expect(helmetService.pushHelmet).toHaveBeenCalledWith(
+        expect.any(Number),
+        {
+          title: "Home",
+          metas: {
+            "name='description'": {
+              name: "description",
+              httpEquiv: "",
+              content: "I'm da best mayne!",
+            },
+          },
+        }
+      );
     });
   });
 });

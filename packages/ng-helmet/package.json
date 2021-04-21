@@ -1,9 +1,38 @@
 {
   "name": "ng-helmet",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "A document head manager for Angular",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/replayvalue/ng-helmet/issues"
+  },
+  "homepage": "https://github.com/replayvalue/ng-helmet#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/replayvalue/ng-helmet"
+  },
+  "keywords": [
+    "ng-helmet",
+    "angular helmet",
+    "angular",
+    "angular 2",
+    "document",
+    "head",
+    "title",
+    "meta"
+  ],
+  "author": {
+    "name": "John Dengis",
+    "email": "john@getreplayvalue.com",
+    "url": "https://getreplayvalue.com"
+  },
   "peerDependencies": {
     "@angular/common": "^11.2.10",
-    "@angular/core": "^11.2.10"
+    "@angular/core": "^11.2.10",
+    "rxjs": "^6.6.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

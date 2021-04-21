@@ -18,7 +18,6 @@ let currentId = 0;
 
 @Component({
   selector: "ng-helmet",
-  // template: "<ng-content></ng-content>",
   template: ``,
 })
 export class NgHelmetComponent implements AfterContentInit, OnDestroy {

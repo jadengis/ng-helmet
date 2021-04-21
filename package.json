@@ -24,7 +24,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main"
+    "postinstall": "ngcc --properties es2015 browser module main",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -64,12 +65,19 @@
     "dotenv": "8.2.0",
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
+    "husky": "^6.0.0",
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.2",
+    "lint-staged": "^10.5.4",
     "ng-packagr": "^11.0.0",
     "prettier": "2.2.1",
     "ts-jest": "26.4.0",
     "ts-node": "~9.1.1",
     "typescript": "~4.1.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,html,scss,md,json}": [
+      "prettier --write"
+    ]
   }
 }

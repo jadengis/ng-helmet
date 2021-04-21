@@ -1,25 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createComponentFactory, Spectator } from "@ngneat/spectator/jest";
 
-import { NgHelmetTitleComponent } from './ng-helmet-title.component';
+import { NgHelmetTitleComponent } from "./ng-helmet-title.component";
 
-describe('NgHelmetTitleComponent', () => {
-  let component: NgHelmetTitleComponent;
-  let fixture: ComponentFixture<NgHelmetTitleComponent>;
+describe("NgHelmetTitleComponent", () => {
+  describe("while isolated", () => {
+    let spectator: Spectator<NgHelmetTitleComponent>;
+    const createComponent = createComponentFactory(NgHelmetTitleComponent);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ NgHelmetTitleComponent ]
-    })
-    .compileComponents();
-  });
+    beforeEach(() => (spectator = createComponent()));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NgHelmetTitleComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    it("should create", () => {
+      expect(spectator.component).toBeTruthy();
+    });
   });
 });
