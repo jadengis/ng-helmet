@@ -63,12 +63,15 @@ export class NgHelmetService {
    * @returns The current helmet.
    */
   private computeHelmet(): NgHelmet {
-    return this.helmetStack
-      .map((e) => e.helmet)
-      .reduce((acc, el) => ({
-        title: el.title ?? acc.title,
-        metas: { ...acc.metas, ...el.metas },
-      }));
+    if (this.helmetStack.length > 0) {
+      return this.helmetStack
+        .map((e) => e.helmet)
+        .reduce((acc, el) => ({
+          title: el.title ?? acc.title,
+          metas: { ...acc.metas, ...el.metas },
+        }));
+    }
+    return { metas: {} };
   }
 
   /**

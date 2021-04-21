@@ -26,11 +26,12 @@ export function buildHelmet(
 function metaToDefinition({
   nativeElement: el,
 }: ElementRef<HTMLMetaElement>): MetaDefinition {
+  const { name, content, httpEquiv } = el;
   const property = el.getAttribute("property");
   return {
-    name: el.name,
-    content: el.content,
-    httpEquiv: el.httpEquiv,
+    ...(name && { name }),
+    ...(content && { content }),
+    ...(httpEquiv && { httpEquiv }),
     ...(property && { property }),
   };
 }

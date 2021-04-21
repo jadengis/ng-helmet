@@ -52,7 +52,6 @@ describe("NgHelmetComponent", () => {
           metas: {
             "name='description'": {
               name: "description",
-              httpEquiv: "",
               content: "I'm da best mayne!",
             },
           },
