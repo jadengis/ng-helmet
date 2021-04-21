@@ -1,5 +1,9 @@
 # Angular Helmet
 
+[![Build](https://github.com/replayvalue/ng-helmet/actions/workflows/test.yml/badge.svg)](https://github.com/replayvalue/ng-helmet/actions/workflows/test.yml)
+[![Test](https://github.com/replayvalue/ng-helmet/actions/workflows/build.yml/badge.svg)](https://github.com/replayvalue/ng-helmet/actions/workflows/build.yml)
+[![Lint](https://github.com/replayvalue/ng-helmet/actions/workflows/lint.yml/badge.svg)](https://github.com/replayvalue/ng-helmet/actions/workflows/lint.yml)
+
 Angular Helmet is a simple and intuitive document head manager for Angular applications. Inspired by [React Helmet](https://github.com/nfl/react-helmet).
 
 ## Installation
