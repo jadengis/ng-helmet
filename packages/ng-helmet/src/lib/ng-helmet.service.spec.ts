@@ -4,6 +4,7 @@ import { Meta, Title } from "@angular/platform-browser";
 
 import { NgHelmetService } from "./ng-helmet.service";
 import { NgHelmet } from "./ng-helmet.model";
+import { NG_HELMET_CONFIG_TOKEN } from "./ng-helmet.tokens";
 
 describe("NgHelmetService", () => {
   let spectator: SpectatorService<NgHelmetService>;
@@ -13,7 +14,7 @@ describe("NgHelmetService", () => {
   });
 
   const helmet: NgHelmet = {
-    title: "Home | Replay Value",
+    title: "Home",
     metas: {
       "name='description'": {
         name: "description",
@@ -31,11 +32,11 @@ describe("NgHelmetService", () => {
     },
   };
 
-  beforeEach(() => {
-    spectator = createService();
-  });
-
   describe(".pushHelmet", () => {
+    beforeEach(() => {
+      spectator = createService();
+    });
+
     it("should setTitle and add tags when passed a helmet", () => {
       const service = spectator.service;
       const title = spectator.inject(Title);
@@ -107,6 +108,10 @@ describe("NgHelmetService", () => {
   });
 
   describe(".popHelmet", () => {
+    beforeEach(() => {
+      spectator = createService();
+    });
+
     it("should recompute the helmet and apply", () => {
       const service = spectator.service;
       const title = spectator.inject(Title);
@@ -121,6 +126,36 @@ describe("NgHelmetService", () => {
       service.popHelmet();
       expect(title.setTitle).toHaveBeenCalledWith(helmet.title);
       expect(meta.removeTag).toHaveBeenCalledWith("property='og:title'");
+    });
+  });
+
+  describe("with optional config", () => {
+    beforeEach(() => {
+      spectator = createService({
+        providers: [
+          {
+            provide: NG_HELMET_CONFIG_TOKEN,
+            useValue: { baseTitle: "| Replay Value" },
+          },
+        ],
+      });
+    });
+
+    describe(".pushHelmet", () => {
+      it("should setTitle with the correct base", () => {
+        const service = spectator.service;
+        const title = spectator.inject(Title);
+        const meta = spectator.inject(Meta);
+        meta.getTag.mockReturnValue(null);
+
+        service.pushHelmet(0, helmet);
+        expect(title.setTitle).toHaveBeenCalledWith(
+          `${helmet.title} | Replay Value`
+        );
+        expect(meta.addTag).toHaveBeenCalledWith(
+          helmet.metas["name='description'"]
+        );
+      });
     });
   });
 });
