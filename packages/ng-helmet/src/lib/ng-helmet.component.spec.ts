@@ -4,9 +4,7 @@ import {
   Spectator,
   SpectatorHost,
 } from "@ngneat/spectator/jest";
-import { NgHelmetMetaComponent } from "./ng-helmet-meta.component";
-import { NgHelmetTitleComponent } from "./ng-helmet-title.component";
-
+import { NgHelmetChildDirective } from "./ng-helmet-child.directive";
 import { NgHelmetComponent } from "./ng-helmet.component";
 import { NgHelmetService } from "./ng-helmet.service";
 
@@ -15,7 +13,7 @@ describe("NgHelmetComponent", () => {
     let spectator: Spectator<NgHelmetComponent>;
     const createComponent = createComponentFactory({
       component: NgHelmetComponent,
-      declarations: [NgHelmetTitleComponent, NgHelmetMetaComponent],
+      declarations: [NgHelmetChildDirective],
       mocks: [NgHelmetService],
     });
 
@@ -34,7 +32,7 @@ describe("NgHelmetComponent", () => {
     let spectator: SpectatorHost<NgHelmetComponent>;
     const createHost = createHostFactory({
       component: NgHelmetComponent,
-      declarations: [NgHelmetTitleComponent, NgHelmetMetaComponent],
+      declarations: [NgHelmetChildDirective],
       mocks: [NgHelmetService],
     });
 

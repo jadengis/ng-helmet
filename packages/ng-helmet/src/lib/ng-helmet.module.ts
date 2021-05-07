@@ -1,15 +1,10 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { NgHelmetComponent } from "./ng-helmet.component";
-import { NgHelmetTitleComponent } from "./ng-helmet-title.component";
-import { NgHelmetMetaComponent } from "./ng-helmet-meta.component";
 import { NgHelmetConfig } from "./ng-helmet.config";
 import { NG_HELMET_CONFIG_TOKEN } from "./ng-helmet.tokens";
+import { NgHelmetChildDirective } from "./ng-helmet-child.directive";
 
-const components = [
-  NgHelmetComponent,
-  NgHelmetTitleComponent,
-  NgHelmetMetaComponent,
-];
+const components = [NgHelmetComponent, NgHelmetChildDirective];
 
 @NgModule({
   declarations: components,
