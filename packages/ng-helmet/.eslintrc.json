@@ -10,10 +10,6 @@
       ],
       "parserOptions": { "project": ["packages/ng-helmet/tsconfig.*?.json"] },
       "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          { "type": "attribute", "prefix": "ngHelmet", "style": "camelCase" }
-        ],
         "@angular-eslint/component-selector": [
           "error",
           { "type": "element", "prefix": "ng-helmet" }

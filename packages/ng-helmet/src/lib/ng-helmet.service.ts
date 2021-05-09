@@ -1,8 +1,8 @@
 import { Inject, Injectable, Optional } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
-import { NgHelmetConfig } from "./ng-helmet.config";
+import { NgHelmetOptions } from "./ng-helmet.options";
 import { NgHelmet, MetaDefinitions } from "./ng-helmet.model";
-import { NG_HELMET_CONFIG_TOKEN } from "./ng-helmet.tokens";
+import { NG_HELMET_OPTIONS } from "./ng-helmet.tokens";
 
 type HelmetStack = { readonly id: number; helmet: NgHelmet }[];
 
@@ -14,8 +14,8 @@ export class NgHelmetService {
     private readonly title: Title,
     private readonly meta: Meta,
     @Optional()
-    @Inject(NG_HELMET_CONFIG_TOKEN)
-    private readonly config?: NgHelmetConfig
+    @Inject(NG_HELMET_OPTIONS)
+    private readonly config?: NgHelmetOptions
   ) {}
 
   private readonly helmetStack: HelmetStack = [];
