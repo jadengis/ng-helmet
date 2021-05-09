@@ -4,7 +4,7 @@ import { Meta, Title } from "@angular/platform-browser";
 
 import { NgHelmetService } from "./ng-helmet.service";
 import { NgHelmet } from "./ng-helmet.model";
-import { NG_HELMET_CONFIG_TOKEN } from "./ng-helmet.tokens";
+import { NG_HELMET_OPTIONS } from "./ng-helmet.tokens";
 
 describe("NgHelmetService", () => {
   let spectator: SpectatorService<NgHelmetService>;
@@ -134,7 +134,7 @@ describe("NgHelmetService", () => {
       spectator = createService({
         providers: [
           {
-            provide: NG_HELMET_CONFIG_TOKEN,
+            provide: NG_HELMET_OPTIONS,
             useValue: { baseTitle: "| Replay Value" },
           },
         ],

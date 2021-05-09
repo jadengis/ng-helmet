@@ -1,6 +1,6 @@
 import { InjectionToken } from "@angular/core";
-import { NgHelmetConfig } from "./ng-helmet.config";
+import { NgHelmetOptions } from "./ng-helmet.options";
 
-export const NG_HELMET_CONFIG_TOKEN = new InjectionToken<NgHelmetConfig>(
-  "ng-helmet.config"
+export const NG_HELMET_OPTIONS = new InjectionToken<NgHelmetOptions>(
+  "ng-helmet.options"
 );

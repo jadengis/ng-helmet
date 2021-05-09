@@ -5,8 +5,8 @@ import {
   ElementRef,
   HostBinding,
   OnDestroy,
-  QueryList,
 } from "@angular/core";
+import type { QueryList } from "@angular/core";
 import { buildHelmet } from "./ng-helmet.model";
 import { NgHelmetService } from "./ng-helmet.service";
 import { Observable, Subject } from "rxjs";
