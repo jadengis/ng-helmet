@@ -1,18 +1,18 @@
 {
   "name": "ng-helmet",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A document head manager for Angular",
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/replayvalue/ng-helmet/issues"
+    "url": "https://github.com/jadengis/ng-helmet/issues"
   },
-  "homepage": "https://github.com/replayvalue/ng-helmet#readme",
+  "homepage": "https://github.com/jadengis/ng-helmet#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/replayvalue/ng-helmet"
+    "url": "https://github.com/jadengis/ng-helmet"
   },
   "keywords": [
     "ng-helmet",
@@ -26,14 +26,13 @@
   ],
   "author": {
     "name": "John Dengis",
-    "email": "john@getreplayvalue.com",
-    "url": "https://getreplayvalue.com"
+    "email": "jadengis@gmail.com"
   },
   "peerDependencies": {
-    "@angular/common": ">=9.0.0 <12.0.0",
-    "@angular/core": "^>=9.0.0 <12.0.0",
-    "@angular/platform-browser": "^>=9.0.0 <12.0.0",
-    "rxjs": "^6.5.0"
+    "@angular/common": ">=9.0.0 <13.0.0",
+    "@angular/core": "^>=9.0.0 <13.0.0",
+    "@angular/platform-browser": "^>=9.0.0 <14.0.0",
+    "rxjs": "^6.5.0 || ^7.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

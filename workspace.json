@@ -26,13 +26,12 @@
               "packages/ng-helmet/src/**/*.ts",
               "packages/ng-helmet/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/packages/ng-helmet"
-          ],
+          "outputs": ["coverage/packages/ng-helmet"],
           "options": {
             "jestConfig": "packages/ng-helmet/jest.config.js",
             "passWithNoTests": true
