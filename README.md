@@ -20,6 +20,13 @@ Yarn:
 yarn add ng-helmet
 ```
 
+## Compatibility
+
+| Version | Angular Version |
+| ------- | --------------- |
+| `1.x.x` | `>=9 <13`       |
+| `2.x.x` | `>=13 <15`      |
+
 ## Features
 
 - Supports the following head tags: `title` and `meta`.

@@ -1,3 +1,13 @@
+# 2.0.0
+
+### BREAKING CHANGES
+
+- Support for Angular 12 and below dropped due to the new packaging format.
+
+### Features
+
+- Support for Angular >=13 <15
+
 # 1.1.0
 
 ### Features
