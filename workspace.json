@@ -33,31 +33,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/ng-helmet"],
           "options": {
-            "jestConfig": "packages/ng-helmet/jest.config.js",
+            "jestConfig": "packages/ng-helmet/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "generators": {
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
-  "defaultProject": "ng-helmet"
+  }
 }
