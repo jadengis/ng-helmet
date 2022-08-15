@@ -1,6 +1,6 @@
 {
   "name": "ng-helmet",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A document head manager for Angular",
   "publishConfig": {
     "access": "public"
