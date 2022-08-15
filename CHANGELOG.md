@@ -1,3 +1,10 @@
+# 2.0.1
+
+### Bugfixes
+
+- Fix an issue where `@angular/platform-browser-dynamic` was unintentionally being brought into
+  `package.json`
+
 # 2.0.0
 
 ### BREAKING CHANGES
